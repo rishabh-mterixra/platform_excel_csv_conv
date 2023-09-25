@@ -11,6 +11,7 @@ import pandas as pd
 
 file_upld=st.file_uploader("Please Upload The Excel File!")
 file_name=file_upld.name
+file_name=file_name.split(".")[0]
 pl_df=pl.read_excel(file_upld,sheet_name='CSV')
 df=pl_df.to_pandas()
 df['PERIOD']=pd.to_datetime(df['PERIOD'])
